@@ -9,6 +9,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { IPublicClientApplication, PublicClientApplication, InteractionType, BrowserCacheLocation, LogLevel } from '@azure/msal-browser';
 import { MsalGuard, MsalInterceptor, MsalBroadcastService, MsalInterceptorConfiguration, MsalModule, MsalService, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalRedirectComponent } from '@azure/msal-angular';
 import { MaterialModule } from './material/material.module';
+import { msalConfig, protectedResources } from 'src/auth-config';
+import { environment } from 'src/environments/environment';
+import { ReadexcelDirective } from './directives/readexcel.directive';
 
 const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1; // Remove this line to use Angular Universal
 
@@ -21,20 +24,24 @@ const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigato
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    MsalModule.forRoot(new PublicClientApplication({
-      auth: {
-        clientId: '82defadd-5c44-43a7-ac1a-6248b0c83e3d',
-        authority: 'https://login.microsoftonline.com/17cd7fad-2445-4a68-9193-eb6b80b378cb',
-        redirectUri: '/admin',
-        navigateToLoginRequestUrl: false,
-        postLogoutRedirectUri: '/auth/login'
+    MsalModule.forRoot(
+      new PublicClientApplication(msalConfig),
+      {
+        // The routing guard configuration.
+        interactionType: InteractionType.Redirect,
+        authRequest: {
+          scopes: protectedResources.todoListApi.scopes,
+        },
       },
-      cache: {
-        cacheLocation: BrowserCacheLocation.SessionStorage,
-        storeAuthStateInCookie: isIE, 
+      {
+        interactionType: InteractionType.Redirect,
+        protectedResourceMap: new Map([
+          ['https://graph.microsoft.com/v1.0/me', ['user.read']],
+          [`${environment.baseUrl}`,['api://9837f58f-9d50-4c02-9e5e-0051f060a7f1/TodoList.ReadWrite']
+          ],
+        ]),
       }
-    }), null!,null!
-    ),
+    )
   ],
   providers: [
     {
