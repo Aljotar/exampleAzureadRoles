@@ -1,12 +1,19 @@
-
 <mat-toolbar color="primary">
     <span>My Application</span>
     <div *ngIf="(loginDisplay)" class="example-button-row">
         <button mat-raised-button color="primary" (click)="logout()">Logout</button>
     </div>
 </mat-toolbar>
+<div class="row mt-5 container">
+    <div class="col-3 p-0 mx-1">
+        <app-sidemenu></app-sidemenu>
+    </div>
+    <div class="col p-0 mx-5">
+        <router-outlet></router-outlet>
+    </div>
+</div>
 
-<router-outlet></router-outlet>
+
 
 
 
