@@ -1,1 +1,129 @@
-<p>unit-load works!</p>
+<h2 class="pb-3">Carga unitaria de usuarios</h2>
+<hr>
+
+<div class="row container">
+    <div class="col">
+        <form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario">
+
+            <!-- Campo userId -->
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">User id</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="userId"
+                           formControlName="userId"
+                    >
+                    <span class="form-text text-danger"
+                          *ngIf="campoEsValido( 'userId' )">
+                        Debe User id de ser minimo 3 caracteres
+                    </span>
+                </div>
+            </div>
+
+            <!-- Campo de profileId -->
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Profile id</label>
+                <div class="col-sm-9">
+                    <input type="number"
+                           class="form-control"
+                           placeholder="profileId"
+                           formControlName="profileId"
+                    >
+                    <span class="form-text text-danger"
+                          *ngIf="campoEsValido( 'profileId' )">
+                        El profileId debe der mayor o igual a cero
+                    </span>
+                </div>
+            </div>
+
+            <!-- Campo de clientId -->
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Client id</label>
+                <div class="col-sm-9">
+                    <input type="number"
+                           class="form-control"
+                           placeholder="clientId"
+                           formControlName="clientId"
+                    >
+                    <span class="form-text text-danger"
+                          *ngIf="campoEsValido( 'clientId' )">
+                        El clientId debe der mayor o igual a cero
+                    </span>
+                </div>
+            </div>
+
+            <!-- Campo nombre -->
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="nombre"
+                           formControlName="name"
+                    >
+                    <span class="form-text text-danger"
+                          *ngIf="campoEsValido( 'name' )">
+                        Debe nombre de ser minimo 3 caracteres
+                    </span>
+                </div>
+            </div>
+
+                <!-- Campo active -->
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-9">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar estado</option>
+                        <option value=true>Activo</option>
+                        <option value=false>Inactivo</option>
+                      </select>
+<!--                     <input type="text"
+                           class="form-control"
+                           placeholder="nombre"
+                           formControlName="active"
+                    > -->
+                    <span class="form-text text-danger"
+                          *ngIf="campoEsValido( 'name' )">
+                        Debe nombre de ser minimo 3 caracteres
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                            class="btn btn-primary float-end"
+                            >
+                        Guardar
+                    </button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre> {{ miFormulario.valid }} </pre>
+        
+        <span>Pristine</span>
+        <pre> {{ miFormulario.pristine }} </pre>
+        
+        <span>Valid</span>
+        <pre> {{ miFormulario.touched }} </pre>
+
+        <span>Valid</span>
+        <pre> {{ miFormulario.value | json }} </pre>
+    </div>
+</div>
+
+

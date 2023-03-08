@@ -6,6 +6,7 @@ import { ReadexcelDirective } from '../directives/readexcel.directive';
 import {MatTableModule} from '@angular/material/table';
 import { UnitLoadComponent } from './pages/unit-load/unit-load.component';
 import { MainPanelComponent } from './pages/main-panel/main-panel.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { MainPanelComponent } from './pages/main-panel/main-panel.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatTableModule
+    MatTableModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }
