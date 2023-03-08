@@ -5,8 +5,8 @@ const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigato
  
 export const msalConfig: Configuration = {
      auth: {
-         clientId: '82defadd-5c44-43a7-ac1a-6248b0c83e3d',
-         authority:'https://login.microsoftonline.com/17cd7fad-2445-4a68-9193-eb6b80b378cb',
+         clientId: '5a3ece46-fe97-4463-993b-e21fb7e5a7b1',
+         authority:'https://login.microsoftonline.com/44962604-4809-48ba-bf6e-d1050d840cf2',
          redirectUri:'/',
          navigateToLoginRequestUrl:false,
          postLogoutRedirectUri: '/'

@@ -12,6 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { msalConfig, protectedResources } from 'src/auth-config';
 import { environment } from 'src/environments/environment';
 import { ReadexcelDirective } from './directives/readexcel.directive';
+import { SharedModule } from './shared/shared.module';
 
 const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1; // Remove this line to use Angular Universal
 
@@ -23,6 +24,7 @@ const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigato
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    SharedModule,
     MaterialModule,
     AppRoutingModule,
     MsalModule.forRoot(
