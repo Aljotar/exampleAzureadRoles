@@ -20,16 +20,16 @@ export class SidemenuComponent {
 
   templateMenu: MenuItem[] = [
     {
+      texto: 'Panel',
+      ruta: './admin/panel'
+    },
+    {
       texto: 'Carga masiva',
       ruta: './admin/masiva'
     },
     {
       texto: 'Carga unitaria',
       ruta: './admin/unitaria'
-    },
-    {
-      texto: 'otros',
-      ruta: './admin/panel'
     }
   ]
 
