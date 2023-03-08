@@ -21,6 +21,7 @@ const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigato
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,

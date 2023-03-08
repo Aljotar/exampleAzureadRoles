@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { UserService } from 'src/app/services/user.service';
 
 
 
@@ -10,17 +11,13 @@ export interface PeriodicElement {
   NTLoguin: string;
 }
 
-const dataElement: PeriodicElement[] = [];
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styles: [
-  ]
+  styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
-  excelData!: PeriodicElement;
   displayedColumns: string[] = ['LastName', 'FirstName', 'Extension', 'NTLoguin'];
   dataSource = new MatTableDataSource<PeriodicElement>();
 
@@ -28,5 +25,16 @@ export class HomeComponent {
     this.dataSource.data = data
     console.log(this.dataSource.data)
   }
+
+  constructor( private userService: UserService ) {}
+
+  ngOnInit(): void {
+
+    this.userService.getProfile();
+    this.userService.getEmployeeData();
+    
+  }
+
+
 
 }

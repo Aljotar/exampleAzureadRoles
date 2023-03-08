@@ -32,7 +32,7 @@ export const msalConfig: Configuration = {
 
 export const protectedResources = {
   todoListApi: {
-    endpoint: '',
+    endpoint: 'https://localhost:7261/User/GetDataUserLogin',
     scopes: []
   },
 
