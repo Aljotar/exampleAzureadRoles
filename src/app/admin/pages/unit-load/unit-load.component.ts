@@ -24,7 +24,9 @@ export class UnitLoadComponent implements OnInit {
     profileId: [  , [Validators.required, Validators.min(0)]],
     clientId: [  , [Validators.required, Validators.min(0)]],
     name: [ '', [Validators.required, Validators.minLength(3)]],
-    existencias: [  , [Validators.required, Validators.min(0)]]
+    active: [ , [Validators.required]],
+    country: [ '', [Validators.required, Validators.minLength(3)]],
+    pbxExt: [ , [Validators.required, Validators.minLength(3)]]
   })
 
   constructor( private fb: FormBuilder ) {}

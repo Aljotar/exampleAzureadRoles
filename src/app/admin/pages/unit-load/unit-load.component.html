@@ -78,8 +78,9 @@
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Estado</label>
                 <div class="col-sm-9">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Seleccionar estado</option>
+                    <select class="form-select" aria-label="Default select example"
+                            formControlName="active"
+                    >
                         <option value=true>Activo</option>
                         <option value=false>Inactivo</option>
                       </select>
@@ -89,8 +90,43 @@
                            formControlName="active"
                     > -->
                     <span class="form-text text-danger"
-                          *ngIf="campoEsValido( 'name' )">
-                        Debe nombre de ser minimo 3 caracteres
+                          *ngIf="campoEsValido( 'active' )">
+                        Seleccione estado del usuario
+                    </span>
+                </div>
+            </div>
+
+
+                <!-- Campo country -->
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Pais</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="nombre"
+                           formControlName="country"
+                    >
+                    <span class="form-text text-danger"
+                          *ngIf="campoEsValido( 'country' )">
+                        El debe pais de ser minimo 3 caracteres
+                    </span>
+                </div>
+            </div>
+
+                    <!-- Campo pbExt -->
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Extension</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="pbxExt"
+                           formControlName="pbxExt"
+                    >
+                    <span class="form-text text-danger"
+                          *ngIf="campoEsValido( 'pbxExt' )">
+                        La extension de ser minimo 3 caracteres
                     </span>
                 </div>
             </div>

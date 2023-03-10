@@ -18,6 +18,9 @@ interface MenuItem {
 })
 export class SidemenuComponent {
 
+
+  constructor () { }
+
   templateMenu: MenuItem[] = [
     {
       texto: 'Panel',
