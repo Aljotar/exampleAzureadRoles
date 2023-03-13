@@ -1,14 +1,106 @@
 <h2>Panel Administrador</h2>
-<hr>
-
+<hr />
 
 <ul class="list-group">
-    <li 
-        *ngFor="let item of templateMenu" 
-        class="list-group-item list-group-item-action" 
-        [routerLink]="[ item.ruta ]"
-        routerLinkActive="active"
-        >
-        {{ item.texto }}
-    </li>
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['ADMPROY', 'Admin']"
+    [routerLink]="['/admin/000ADP']"
+  >
+    Alta Perfil
+  </li>
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['ADMPROY', 'Admin']"
+    [routerLink]="['/admin/000ADU']"
+  >
+    Alta de usuarios
+  </li>
+
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['ADMPROY', 'Admin']"
+    [routerLink]="['/admin/000ADUM']"
+  >
+    Alta de usuarios Masiva
+  </li>
+
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['Agente', 'Admin']"
+    [routerLink]="['/admin/000AP']"
+  >
+    Asignacion de permisos
+  </li>
+
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['Agente', 'Admin']"
+    [routerLink]="['/admin/000BUR']"
+  >
+    Buscar usuarios
+  </li>
+
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['Agente', 'Admin']"
+    [routerLink]="['/admin/000MU']"
+  >
+    Modificar Usuarios
+  </li>
+
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['Agente', 'Admin']"
+    [routerLink]="['/admin/000OA']"
+  >
+    Obtener Acciones
+  </li>
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['Agente', 'Admin']"
+    [routerLink]="['/admin/000OAS']"
+  >
+    Obtener App Spop
+  </li>
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['Agente', 'Admin']"
+    [routerLink]="['/admin/000OC']"
+  >
+    Obtener Campanias
+  </li>
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['Agente', 'Admin']"
+    [routerLink]="['/admin/000OP']"
+  >
+    Obtener Perfiles
+  </li>
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['Agente', 'Admin']"
+    [routerLink]="['/admin/000OPAP']"
+  >
+    Obtener Permisos Asignados a los Perfiles
+  </li>
+  <li
+    class="list-group-item list-group-item-action"
+    routerLinkActive="active"
+    *akoShowForRoles="['Agente', 'Admin']"
+    [routerLink]="['/admin/000UDP']"
+  >
+    Modificar Perfil
+  </li>
 </ul>

@@ -3,7 +3,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
 
 
-
 export interface PeriodicElement {
   LastName: string;
   FirstName: number;
@@ -12,11 +11,13 @@ export interface PeriodicElement {
 }
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-load-masive',
+  templateUrl: './load-masive.component.html',
+  styles: [
+  ]
 })
-export class HomeComponent implements OnInit{
+export class LoadMasiveComponent {
+
 
   displayedColumns: string[] = ['LastName', 'FirstName', 'Extension', 'NTLoguin'];
   dataSource = new MatTableDataSource<PeriodicElement>();
@@ -33,7 +34,5 @@ export class HomeComponent implements OnInit{
     this.userService.getProfile();
     
   }
-
-
 
 }

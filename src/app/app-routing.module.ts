@@ -9,13 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule ),
-    canActivate: [MsalGuard]
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule )
   },
   {
     path: '**',
-    // component: ErrorPageComponent
-    redirectTo: 'auth'
+    redirectTo: 'admin'
   }
 ]
 

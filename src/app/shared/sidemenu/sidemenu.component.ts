@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { AccionResult, UserService } from 'src/app/services/user.service';
 
-interface MenuItem {
-  texto: string,
-  ruta: string
-}
 
 @Component({
   selector: 'app-sidemenu',
@@ -11,29 +8,32 @@ interface MenuItem {
   styles: [`
     .list-group-item.active {
       background: linear-gradient(#7A2180 16.67%,#E40276 95.31%);
-      border-style: none
+      border-style: none;
+    },
+    li {
+      cursor: pointer;
     }
   `
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SidemenuComponent {
+export class SidemenuComponent implements OnInit{
 
 
-  constructor () { }
+  public accionList: AccionResult[] = [];
 
-  templateMenu: MenuItem[] = [
-    {
-      texto: 'Panel',
-      ruta: './admin/panel'
-    },
-    {
-      texto: 'Carga masiva',
-      ruta: './admin/masiva'
-    },
-    {
-      texto: 'Carga unitaria',
-      ruta: './admin/unitaria'
-    }
-  ]
+
+  constructor (private userService: UserService) { }
+
+
+  ngOnInit(): void {
+
+    this.userService.GetAccion()
+      .subscribe(resp => { console.log(resp); })
+      
+    this.userService.getEmployeeData();
+    
+  }
+
 
 }

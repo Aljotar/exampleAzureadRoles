@@ -17,7 +17,8 @@ export class AppComponent implements OnInit, OnDestroy {
   loginDisplay: boolean = false;
   private readonly _destroying$ = new Subject<void>();
 
-  constructor(private broadcastService: MsalBroadcastService, private authService: MsalService) { }
+  constructor(private broadcastService: MsalBroadcastService, private authService: MsalService,
+              private userService: UserService ) { }
 
   ngOnInit() {
     this.isIframe = window !== window.parent && !window.opener;
@@ -42,7 +43,6 @@ export class AppComponent implements OnInit, OnDestroy {
       postLogoutRedirectUri: 'http://localhost:4200'
     });
   }
-
 
 
   ngOnDestroy(): void {
