@@ -1,12 +1,16 @@
 
 
-<mat-grid-list cols="3" rowHeight="100vh">
+<mat-grid-list cols="3" rowHeight="85vh">
     <mat-grid-tile>
     </mat-grid-tile>
     <mat-grid-tile>
-        <div *ngIf="(!loginDisplay)" class="example-button-row">
-            <button mat-raised-button color="primary" (click)="login()">Login</button>
-        </div>
+        <div class="text-center">
+            <img width="100" src="../../../../assets/images/microsoft.png" />
+            <p class="text-center">Use your Microsoft account.</p>
+            <div *ngIf="(!loginDisplay)" class="example-button-row mt-3">
+                <button mat-raised-button (click)="login()">Login</button>
+            </div>
+          </div>
     </mat-grid-tile>
     <mat-grid-tile>
     </mat-grid-tile>

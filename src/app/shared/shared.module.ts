@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { AuthModule } from '../auth/auth.module';
+import { SpinnerComponent } from './component/spinner/spinner.component';
+import { SpinnerService } from './services/spinner.service';
 
 
 
 @NgModule({
   declarations: [
-    SidemenuComponent
+    SidemenuComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +19,11 @@ import { AuthModule } from '../auth/auth.module';
     AuthModule
   ],
   exports: [
-    SidemenuComponent
+    SidemenuComponent,
+    SpinnerComponent
+  ],
+  providers: [
+    SpinnerService
   ]
 })
 export class SharedModule { }

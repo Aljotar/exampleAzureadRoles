@@ -9,7 +9,7 @@ export const msalConfig: Configuration = {
          authority:'https://login.microsoftonline.com/44962604-4809-48ba-bf6e-d1050d840cf2',
          redirectUri:'/',
          navigateToLoginRequestUrl:false,
-         postLogoutRedirectUri: '/'
+         postLogoutRedirectUri: 'https://localhost:4200/auth/login'
      },
 
 

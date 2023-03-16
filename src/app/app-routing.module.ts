@@ -9,11 +9,13 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule )
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule ),
+    canActivate: [MsalGuard],
+    canLoad: [MsalGuard]
   },
   {
     path: '**',
-    redirectTo: 'admin'
+    redirectTo: 'auth/login'
   }
 ]
 

@@ -5,15 +5,11 @@ import { RegistroComponent } from './pages/registro/registro.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     children: [
       {
-        path: 'login',
+        path: '',
         component: LoginComponent
-      },
-      {
-        path: 'registro',
-        component: RegistroComponent
       }
     ]
   }

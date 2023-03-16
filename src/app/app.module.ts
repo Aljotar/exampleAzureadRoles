@@ -13,6 +13,7 @@ import { msalConfig, protectedResources } from 'src/auth-config';
 import { environment } from 'src/environments/environment';
 import { ReadexcelDirective } from './directives/readexcel.directive';
 import { SharedModule } from './shared/shared.module';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
 
 const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1; // Remove this line to use Angular Universal
 
@@ -50,6 +51,11 @@ const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigato
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MsalInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerInterceptor,
       multi: true
     },
     MsalService,

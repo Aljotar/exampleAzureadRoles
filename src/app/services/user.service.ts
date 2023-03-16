@@ -4,9 +4,10 @@ import { EventType, EventMessage, AuthenticationResult } from '@azure/msal-brows
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
 import { filter, Observable } from 'rxjs';
 import { protectedResources } from 'src/auth-config';
-import { tap, BehaviorSubject } from 'rxjs'
+import { tap, BehaviorSubject, map } from 'rxjs'
 import { User } from '../auth/model/user.interface';
 import { Profile } from '../auth/model/roles.type';
+import { environment } from 'src/environments/environment';
 
 
 export interface AccionResult {
@@ -70,12 +71,19 @@ getEmployeeData() {
               console.log(this.user);
               console.log(this.user$);
           })
-          
-
 }
 
 GetAccion(): Observable<AccionResult[]>{
   return this.http.get<AccionResult[]>('https://localhost:7261/api/Permiso/GetAccion');
 }
+
+
+userLogOut() {
+  this.http.post(`${environment.logout}`, { title: 'Angular POST Request Example' })
+  .subscribe(resp => {
+      console.log(resp)
+  })
+}
+
 
 }

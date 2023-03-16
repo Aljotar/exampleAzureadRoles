@@ -39,31 +39,48 @@ const routes: Routes = [
     canLoad: [hasRole(['Agente'])]
   },
   {
-    path: '000BUR', component: SearchUsersComponent
+    path: '000BUR', component: SearchUsersComponent,
+    canActivate: [hasRole(['ADMPROY', 'Admin'])],
+    canLoad: [hasRole(['ADMPROY', 'Admin'])]
+    
   },
   {
-    path: '000MU', component: ModifyUsersComponent
+    path: '000MU', component: ModifyUsersComponent,
+    canActivate: [hasRole(['ADMPROY', 'Admin'])],
+    canLoad: [hasRole(['ADMPROY', 'Admin'])]
   },
   {
-    path: '000OA', component: GetSharesComponent
+    path: '000OA', component: GetSharesComponent,
+    canActivate: [hasRole(['ADMPROY', 'Admin'])],
+    canLoad: [hasRole(['ADMPROY', 'Admin'])]
   },
   {
-    path: '000ADUM', component: HomeComponent
+    path: '000OAS', component: HomeComponent,
+    canActivate: [hasRole(['ADMPROY', 'Admin'])],
+    canLoad: [hasRole(['ADMPROY', 'Admin'])]
   },
   {
-    path: '000OC', component: GetCampaignComponent
+    path: '000OC', component: GetCampaignComponent,
+    canActivate: [hasRole(['ADMPROY', 'Admin'])],
+    canLoad: [hasRole(['ADMPROY', 'Admin'])]
   },
   {
-    path: '000OP', component: GetProfileComponent
+    path: '000OP', component: GetProfileComponent,
+    canActivate: [hasRole(['ADMPROY', 'Admin'])],
+    canLoad: [hasRole(['ADMPROY', 'Admin'])]
   },
   {
-    path: '000OPAP', component: GetAssignedPermissionsComponent
+    path: '000OPAP', component: GetAssignedPermissionsComponent,
+    canActivate: [hasRole(['ADMPROY', 'Admin'])],
+    canLoad: [hasRole(['ADMPROY', 'Admin'])]
   },
   {
-    path: '000UDP', component: ModifyProfileComponent
+    path: '000UDP', component: ModifyProfileComponent,
+    canActivate: [hasRole(['ADMPROY', 'Admin'])],
+    canLoad: [hasRole(['ADMPROY', 'Admin'])]
   },
   {
-    path: '**', redirectTo: 'masiva'
+    path: '**', redirectTo: '000ADP'
   }
 ];
 

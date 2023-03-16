@@ -2,9 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MsalService, MsalBroadcastService } from '@azure/msal-angular';
 import { InteractionStatus } from '@azure/msal-browser';
-import { Subject } from 'rxjs';
+import { Subject, interval, timer } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { UserService } from './services/user.service';
+import { SpinnerService } from './shared/services/spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +15,15 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'exampleRoles';
+  
   isIframe: boolean = false;
+
   loginDisplay: boolean = false;
+
   private readonly _destroying$ = new Subject<void>();
 
   constructor(private broadcastService: MsalBroadcastService, private authService: MsalService,
-              private userService: UserService ) { }
+              private userService: UserService, private spinnerService: SpinnerService ) { }
 
   ngOnInit() {
     this.isIframe = window !== window.parent && !window.opener;
@@ -39,9 +44,19 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   logout() { // Add log out function here
-    this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
-    });
+
+    this.userService.userLogOut();
+
+    const logoutAction = timer(2000)
+
+    logoutAction.subscribe(() =>{
+      this.authService.logoutRedirect({
+        postLogoutRedirectUri: `${environment.login}`
+      });
+    })
+
+    window.localStorage.clear();
+
   }
 
 
